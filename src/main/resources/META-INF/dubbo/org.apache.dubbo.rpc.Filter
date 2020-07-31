@@ -1,0 +1,4 @@
+consumerLog=com.msj.dubbo.spi.extension.filter.ConsumerAccessLogFilter
+providerLog=com.msj.dubbo.spi.extension.filter.ProviderAccessLogFilter
+consumerTraceId=com.msj.dubbo.spi.extension.filter.ConsumerTraceIdFilter
+providerTraceId=com.msj.dubbo.spi.extension.filter.ProviderTraceIdFilter
