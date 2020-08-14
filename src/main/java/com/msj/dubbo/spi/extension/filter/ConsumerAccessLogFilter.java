@@ -10,7 +10,7 @@ import org.apache.dubbo.rpc.*;
  * @Date 2018/7/30 下午7:56
  * @Version: 1.0.0
  */
-@Activate(group = {CommonConstants.CONSUMER})
+@Activate(group = {CommonConstants.CONSUMER},order = 1)
 public class ConsumerAccessLogFilter implements Filter {
 
     private static final String APPLICATION = "application";

@@ -1,6 +1,7 @@
 package com.msj.dubbo.spi.extension.filter;
 
 
+import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
 
 /**
@@ -9,6 +10,7 @@ import org.apache.dubbo.rpc.*;
  * @Date 2018/7/30 下午7:55
  * @Version: 1.0.0
  */
+@Activate(order =1)
 public class ProviderAccessLogFilter implements Filter {
 
     private static final String APPLICATION = "application";

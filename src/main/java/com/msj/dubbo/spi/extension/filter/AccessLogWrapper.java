@@ -1,11 +1,12 @@
 package com.msj.dubbo.spi.extension.filter;
 
-import org.apache.dubbo.common.constants.CommonConstants;
-import org.apache.dubbo.rpc.*;
 import com.alibaba.fastjson.JSON;
+import com.msj.dubbo.spi.extension.util.ThreadMdcUtil;
+import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.logger.Logger;
 import org.apache.dubbo.common.logger.LoggerFactory;
 import org.apache.dubbo.common.utils.StringUtils;
+import org.apache.dubbo.rpc.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -82,6 +83,8 @@ public class AccessLogWrapper {
     private void log(LogContext logContext, Invoker<?> invoker, Invocation inv, RpcException ex, Result result, long elapsed) {
         try {
             StringBuilder logRecord = new StringBuilder();
+            String traceId = RpcContext.getContext().getAttachment(ThreadMdcUtil.LOG_TRACE_ID);
+            logRecord.append("["+traceId+"]");
             appendBeforeInvokeLog(logRecord, logContext, invoker, inv);
             appendAfterInvokeLog(logRecord, logContext, ex, result, elapsed);
             if (logRecord.length() == 0) return;

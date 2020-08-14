@@ -20,7 +20,7 @@ import java.util.UUID;
  * 消费者traceId拦截器
  * @author Vincent.M mengshaojie@188.com on 2020/7/31.
  */
-@Activate(group = {CommonConstants.CONSUMER})
+@Activate(group = {CommonConstants.CONSUMER},order = 0)
 public class ConsumerTraceIdFilter implements Filter {
 
     private static final Logger LOG = LoggerFactory.getLogger(ConsumerTraceIdFilter.class);

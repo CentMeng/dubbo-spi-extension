@@ -20,7 +20,7 @@ import java.util.UUID;
  * 提供者traceId拦截器
  * @author Vincent.M mengshaojie@188.com on 2020/7/31.
  */
-@Activate(group = {CommonConstants.PROVIDER})
+@Activate(group = {CommonConstants.PROVIDER},order = 0)
 public class ProviderTraceIdFilter implements Filter {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProviderTraceIdFilter.class);
@@ -36,7 +36,7 @@ public class ProviderTraceIdFilter implements Filter {
             LOG.info("[dubbo] [filter] [ProviderTraceIdFilter],traceId:{}", traceId);
         }
         ThreadMdcUtil.setTraceId(traceId);
-        RpcContext.getContext().setAttachment("traceId", traceId);
+        RpcContext.getContext().setAttachment(ThreadMdcUtil.LOG_TRACE_ID, traceId);
         // *) 实际的rpc调用
         return invoker.invoke(invocation);
     }
