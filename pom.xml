@@ -10,7 +10,7 @@
 
     <properties>
         <dubbo.version>2.7.6</dubbo.version>
-        <com.alibaba.fastjson.version>1.2.68</com.alibaba.fastjson.version>
+        <com.alibaba.fastjson.version>1.2.83</com.alibaba.fastjson.version>
     </properties>
 
     <parent>
